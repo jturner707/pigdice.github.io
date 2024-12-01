@@ -10,6 +10,13 @@ function changePlayers() {
     let player2Name = document.getElementById("player2").value;
     //swap from player to player by comparing current name to player names
     //set currentPlayerName to the next player
+    if (currentPlayerName == player1Name) {
+        currentPlayerName = player2Name;
+    }
+    else {
+        currentPlayerName = player1Name;
+    }
+    document.getElementById("current").innerText = currentPlayerName;
 }
 window.onload = function () {
     let newGameBtn = document.getElementById("new_game");
