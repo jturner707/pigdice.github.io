@@ -22,6 +22,7 @@ function changePlayers():void{
 }
 
 window.onload = function(){
+    // add warning here if "no one has won, do you really want a new game?"
     let newGameBtn = document.getElementById("new_game") as HTMLButtonElement;
     newGameBtn.onclick = createNewGame;
 
@@ -29,6 +30,8 @@ window.onload = function(){
 
     (<HTMLButtonElement>document.getElementById("hold")).onclick = holdDie;
 }
+
+
 
 function createNewGame(){
     //set player 1 and player 2 scores to 0
@@ -49,6 +52,11 @@ function createNewGame(){
     let totalInput = document.getElementById('total') as HTMLInputElement;
     let currTotal = 0;
     totalInput.value = currTotal.toString(); // blank Total box
+    // blank player 1 and player 2 scores
+    let score1 = document.getElementById('score1') as HTMLInputElement;
+    score1.value = "0";
+    let score2 = document.getElementById('score2') as HTMLInputElement;
+    score2.value = "0";
     }
 }
 
