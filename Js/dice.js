@@ -19,12 +19,32 @@ function changePlayers() {
     document.getElementById("current").innerText = currentPlayerName;
 }
 window.onload = function () {
-    // add warning here if "no one has won, do you really want a new game?"
+    // Add warning if "no one has won, do you really want a new game?"
     let newGameBtn = document.getElementById("new_game");
-    newGameBtn.onclick = createNewGame;
+    let score1 = parseInt(document.getElementById("score1").value);
+    let score2 = parseInt(document.getElementById("score2").value);
+    newGameBtn.onclick = newGameBtnClickCheck;
+    // Assign other button click handlers
     document.getElementById("roll").onclick = rollDie;
     document.getElementById("hold").onclick = holdDie;
 };
+// called if new game button clicked to confirm new game if current game not done
+function newGameBtnClickCheck() {
+    let score1 = parseInt(document.getElementById("score1").value, 10);
+    let score2 = parseInt(document.getElementById("score2").value, 10);
+    if ((score1 !== 0 || score2 !== 0) && (score1 < 100 && score2 < 100)) {
+        confirmNewGame(); // Use the confirmation function
+    }
+    else {
+        createNewGame();
+    }
+}
+function confirmNewGame() {
+    let confirmation = confirm("No one has won yet, do you really want a new game?");
+    if (confirmation) {
+        createNewGame();
+    }
+}
 function createNewGame() {
     //set player 1 and player 2 scores to 0
     let player1Score = 0;

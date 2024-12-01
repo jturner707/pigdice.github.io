@@ -21,16 +21,36 @@ function changePlayers():void{
     (document.getElementById("current") as HTMLElement).innerText = currentPlayerName;
 }
 
-window.onload = function(){
-    // add warning here if "no one has won, do you really want a new game?"
+window.onload = function() {
+    // Add warning if "no one has won, do you really want a new game?"
     let newGameBtn = document.getElementById("new_game") as HTMLButtonElement;
-    newGameBtn.onclick = createNewGame;
+    let score1 = parseInt((<HTMLInputElement>document.getElementById("score1")).value);
+    let score2 = parseInt((<HTMLInputElement>document.getElementById("score2")).value);
+    newGameBtn.onclick = newGameBtnClickCheck;
 
-    (<HTMLButtonElement>document.getElementById("roll")).onclick = rollDie;
-
-    (<HTMLButtonElement>document.getElementById("hold")).onclick = holdDie;
+    // Assign other button click handlers
+    (document.getElementById("roll") as HTMLButtonElement).onclick = rollDie;
+    (document.getElementById("hold") as HTMLButtonElement).onclick = holdDie;
 }
 
+// called if new game button clicked to confirm new game if current game not done
+function newGameBtnClickCheck() {
+    let score1 = parseInt((document.getElementById("score1") as HTMLInputElement).value, 10);
+    let score2 = parseInt((document.getElementById("score2") as HTMLInputElement).value, 10);
+
+    if ((score1 !== 0 || score2 !== 0) && (score1 < 100 && score2 < 100)) {
+        confirmNewGame(); // Use the confirmation function
+    } else {
+        createNewGame();
+    }
+}
+
+function confirmNewGame(): void {
+    let confirmation = confirm("No one has won yet, do you really want a new game?");
+    if (confirmation) {
+        createNewGame();
+    }
+}
 
 
 function createNewGame(){
