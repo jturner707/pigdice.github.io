@@ -38,6 +38,11 @@ function createNewGame() {
         document.getElementById("player1").setAttribute("disabled", "disabled");
         document.getElementById("player2").setAttribute("disabled", "disabled");
         changePlayers();
+        let dieInput = document.getElementById('die');
+        dieInput.value = " "; // blank Die box
+        let totalInput = document.getElementById('total');
+        let currTotal = 0;
+        totalInput.value = currTotal.toString(); // blank Total box
     }
 }
 function validatePlayerName() {

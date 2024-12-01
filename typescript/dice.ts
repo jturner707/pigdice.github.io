@@ -44,6 +44,11 @@ function createNewGame(){
     (<HTMLInputElement>document.getElementById("player1")).setAttribute("disabled", "disabled");
     (<HTMLInputElement>document.getElementById("player2")).setAttribute("disabled", "disabled");
     changePlayers();
+    let dieInput = document.getElementById('die') as HTMLInputElement;
+    dieInput.value = " "; // blank Die box
+    let totalInput = document.getElementById('total') as HTMLInputElement;
+    let currTotal = 0;
+    totalInput.value = currTotal.toString(); // blank Total box
     }
 }
 
