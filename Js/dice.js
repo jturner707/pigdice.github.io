@@ -22,9 +22,9 @@ function createNewGame() {
     let player1Score = 0;
     let player2Score = 0;
     //verify each player has a name
+    //if both players don't have a name display error
+    //if both players do have a name start the game!
     if (validatePlayerName()) {
-        //if both players don't have a name display error
-        //if both players do have a name start the game!
         document.getElementById("turn").classList.add("open");
         document.getElementById("total").value = "0";
         //lock in player names and then change players
