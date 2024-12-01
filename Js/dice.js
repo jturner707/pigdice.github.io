@@ -139,6 +139,22 @@ function holdDie() {
     //reset the Die value to 0
     let dieInput = document.getElementById('die');
     dieInput.value = "0";
+    // check to see if anyone has won yet
+    anyoneWonYet();
     //change players
     changePlayers();
+}
+// this function checks if anyone has won.  It is called in holdDie()
+function anyoneWonYet() {
+    let score1 = parseInt(document.getElementById("score1").value, 10);
+    let score2 = parseInt(document.getElementById("score2").value, 10);
+    if (score1 > 99) {
+        alert("Player 1 wins!");
+        createNewGame();
+    }
+    else if (score2 > 99) {
+        alert("Player 2 wins!");
+        createNewGame();
+    }
+    else { }
 }
