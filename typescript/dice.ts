@@ -1,3 +1,5 @@
+
+
 //return random number between 1 and 6 inclusive
 function generateRandomValue(minValue:number, maxValue:number):number{
     var random = Math.random();
@@ -164,12 +166,16 @@ function anyoneWonYet(): void {
     let score2 = parseInt((document.getElementById("score2") as HTMLInputElement).value, 10);
 
     if (score1 > 99) {
+      //  addConfetti();
         alert("Player 1 wins!");
         createNewGame();
     }
     else if (score2 > 99) {
+       // addConfetti();
         alert("Player 2 wins!")
         createNewGame();
     } 
     else {}
 }
+
+
