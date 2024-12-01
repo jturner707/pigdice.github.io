@@ -65,13 +65,25 @@ function validatePlayerName() {
 function rollDie() {
     let currTotal = parseInt(document.getElementById("total").value);
     //roll the die and get a random value 1 - 6 (use generateRandomValue function)
+    let number = generateRandomValue(1, 6);
     //if the roll is 1
     //  change players
     //  set current total to 0
+    if (number == 1) {
+        changePlayers();
+        currTotal = 0;
+    }
     //if the roll is greater than 1
     //  add roll value to current total
+    else {
+        currTotal += number;
+    }
     //set the die roll to value player rolled
+    let dieInput = document.getElementById('die');
+    dieInput.value = number.toString(); // Convert number to string
     //display current total on form
+    let totalInput = document.getElementById('total');
+    totalInput.value = currTotal.toString(); // Convert currTotal to string
 }
 function holdDie() {
     //get the current turn total
