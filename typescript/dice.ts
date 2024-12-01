@@ -103,11 +103,27 @@ function rollDie():void{
 
 function holdDie():void{
     //get the current turn total
+    let totalInput = document.getElementById('total') as HTMLInputElement;
+    let currTotal: number  = parseInt(totalInput.value, 10); // Convert to integer with base 10
     //determine who the current player is
+    let currentPlayerName = (document.getElementById("current") as HTMLElement).innerText;
     //add the current turn total to the player's total score
-
+    let playerScore: string;
+    if (currentPlayerName === (document.getElementById("player1") as HTMLInputElement).value) {
+        playerScore = "score1";
+    }
+    else {
+        playerScore = "score2";
+    }
+    let currentPlayerScore = document.getElementById(playerScore) as HTMLInputElement;
+    let currentScore = parseInt(currentPlayerScore.value, 10);
+    currentScore += currTotal;
+    currentPlayerScore.value = currentScore.toString(); // Convert number to string and write to player's total
     //reset the turn total to 0
-
+    totalInput.value = "0";
+    //reset the Die value to 0
+    let dieInput = document.getElementById('die') as HTMLInputElement;
+    dieInput.value = "0";
     //change players
     changePlayers();
 }
