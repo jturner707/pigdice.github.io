@@ -150,12 +150,12 @@ function anyoneWonYet() {
     let score2 = parseInt(document.getElementById("score2").value, 10);
     if (score1 > 99) {
         addConfetti();
-        setTimeout(() => alert("Player 1 wins!"), 5000);
+        setTimeout(() => alert("Player 1 wins!"), 3000);
         createNewGame();
     }
     else if (score2 > 99) {
         addConfetti();
-        setTimeout(() => alert("Player 2 wins!"), 5000);
+        setTimeout(() => alert("Player 2 wins!"), 3000);
         createNewGame();
     }
     else { }

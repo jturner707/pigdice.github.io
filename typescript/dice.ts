@@ -167,12 +167,12 @@ function anyoneWonYet(): void {
 
     if (score1 > 99) {
         addConfetti();
-        setTimeout(() => alert("Player 1 wins!"), 4000);
+        setTimeout(() => alert("Player 1 wins!"), 3000);
         createNewGame();
     }
     else if (score2 > 99) {
         addConfetti();
-        setTimeout(() => alert("Player 2 wins!"), 4000);
+        setTimeout(() => alert("Player 2 wins!"), 3000);
         createNewGame();
     } 
     else {}
