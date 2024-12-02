@@ -149,14 +149,21 @@ function anyoneWonYet() {
     let score1 = parseInt(document.getElementById("score1").value, 10);
     let score2 = parseInt(document.getElementById("score2").value, 10);
     if (score1 > 99) {
-        //  addConfetti();
-        alert("Player 1 wins!");
+        addConfetti();
+        setTimeout(() => alert("Player 1 wins!"), 5000);
         createNewGame();
     }
     else if (score2 > 99) {
-        // addConfetti();
-        alert("Player 2 wins!");
+        addConfetti();
+        setTimeout(() => alert("Player 2 wins!"), 5000);
         createNewGame();
     }
     else { }
+}
+// confetti function to use the library
+function addConfetti() {
+    console.log("addConfetti called"); // Verify function call
+    const canvas = document.querySelector('#confetti');
+    const jsConfetti = new JSConfetti({ canvas });
+    jsConfetti.addConfetti();
 }

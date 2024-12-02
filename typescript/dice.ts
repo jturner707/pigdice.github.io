@@ -166,16 +166,25 @@ function anyoneWonYet(): void {
     let score2 = parseInt((document.getElementById("score2") as HTMLInputElement).value, 10);
 
     if (score1 > 99) {
-      //  addConfetti();
-        alert("Player 1 wins!");
+        addConfetti();
+        setTimeout(() => alert("Player 1 wins!"), 4000);
         createNewGame();
     }
     else if (score2 > 99) {
-       // addConfetti();
-        alert("Player 2 wins!")
+        addConfetti();
+        setTimeout(() => alert("Player 2 wins!"), 4000);
         createNewGame();
     } 
     else {}
 }
+
+// confetti function to use the library
+function addConfetti(): void {
+    console.log("addConfetti called"); // Verify function call
+    const canvas = document.querySelector('#confetti') as HTMLCanvasElement;
+    const jsConfetti = new JSConfetti({ canvas });
+    jsConfetti.addConfetti();
+}
+
 
 
